@@ -7,11 +7,13 @@ public class VPMain {
         vp.feed();
         vp.exercise();
         this.waitABeat(1000);
-        String ans = this.askForInput("Are you ready to sleep?");
-        if(ans.equals("yes"))
-            vp.sleep();
-        else
-            vp.exercise();
+        int choice = vp.showChoiceDialog(
+        "Are you ready to sleep?", "Sleep", "Exercise");
+    if (choice == 0)
+        vp.sleep();
+    else if (choice == 1)
+        vp.exercise();
+
     }
 
     public void waitABeat(int ms){

@@ -15,6 +15,10 @@ public class VirtualPet {
         face.setMessage("Hello.");
     }
     
+    public int showChoiceDialog(String question, String firstOption, String secondOption) {
+    return face.showChoiceDialog(question, firstOption, secondOption);
+    }
+
     public void feed() {
         if (hunger > 10) {
             hunger = hunger - 10;

@@ -32,6 +32,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.Timer;
 import javax.swing.border.Border;
+import javax.swing.JOptionPane;
 
 
 public class VirtualPetFace extends JFrame implements ActionListener{
@@ -188,7 +189,18 @@ public class VirtualPetFace extends JFrame implements ActionListener{
         textArea.select(current.length(), (current.length() + message.length() + 1));
     }
     
-    
+    public int showChoiceDialog(String question, String firstOption, String secondOption) {
+    Object[] options = {firstOption, secondOption};
+    return JOptionPane.showOptionDialog(
+            this,
+            question,
+            "Virtual Pet",
+            JOptionPane.DEFAULT_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            options,
+            options[0]);
+    }
     public class ImagePanel extends JPanel {
         public ImagePanel( ) {
             super();
