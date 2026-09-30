@@ -6,7 +6,8 @@
 public class VirtualPet {
     
     VirtualPetFace face;
-    int hunger = 0;   // how hungry the pet is.
+    int S = 0;
+    int HP = 0;   // how hungry the pet is.
     
     // constructor
     public VirtualPet() {
@@ -19,28 +20,12 @@ public class VirtualPet {
     return face.showChoiceDialog(question, firstOption, secondOption);
     }
 
-    public void feed() {
-        if (hunger > 10) {
-            hunger = hunger - 10;
-        } else {
-            hunger = 0;
-        }
+    public void SatiationCheck(){
+    }
+
+    public void feed(int FoodA, int FoodB) {
         face.setMessage("Yum, thanks");
         face.setImage("normal");
     }
     
-    public void exercise() {
-        hunger = hunger + 3;
-        face.setMessage("1, 2, 3, jump.  Whew.");
-        face.setImage("tired");
-    }
-    
-    public void sleep() {
-        hunger = hunger + 1;
-        face.setImage("asleep");
-    }
-
-    public void wonTheLottery(){
-        
-    }
 } // end Virtual Pet
