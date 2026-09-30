@@ -5,11 +5,15 @@ public class VPMain {
 
     public VPMain() {
         this.waitABeat(1000);
-        int choice = vp.showChoiceDialog("Are you ready to sleep?", "Sleep", "Exercise");
-        if (choice == 0)
-            vp.sleep();
-        else if (choice == 1)
-            vp.exercise();
+        int choice = vp.showChoiceDialog("Good Morning! What to eat?", "Pizza", "Salad");
+        if (choice == 0){
+            vp.feed(30,-5);
+            vp.SetMSG("The pizza was tasty, but you lost HP because its unhealthy.");
+        }
+        else if (choice == 1){
+            vp.feed(20,-5);
+            vp.SetMSG("You choke on a salad cruton, reducing your HP.");
+        }
     }
 
 
