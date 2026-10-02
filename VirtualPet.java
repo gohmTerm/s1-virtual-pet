@@ -28,32 +28,40 @@ public class VirtualPet {
         if(HP == 0);
             face.setMessage("Finnias is dead!");
             face.setImage("dead");  
-            try {
-            Thread.sleep(2000); // milliseconds
-             } catch (Exception e) {
-
-            }
             face.setImage("angel");
         if(S < 40)
             face.setImage("starving");
     }
 
     public void feed(int Sat, int Heal) {
+        System.out.println("This is a test");
+        face.setMessage("This is test 2");
         S += Sat;
         HP += Heal;
         String msg = "";
         if (Sat < 0)
-            msg.concat("You lost: " + Sat + ", ");
-        if (Heal < 0)
-            msg.concat("You lost: "+ Heal +", ");
+            msg = msg.concat("You lost: " + Sat + " saturation, ");
         if (Sat > 0)
-            msg.concat("You gained: " + Sat + ", ");
+            msg = msg.concat("You gained: " + Sat + " saturation, ");
+        if (Heal < 0)
+            msg = msg.concat("You lost: "+ Heal + "HP.");
         if (Heal > 0)
-            msg.concat("You gained: "+ Heal +", ");
+            msg = msg.concat("You gained: "+ Heal + "HP.");
+        face.setImage("eating");
+        
         face.setMessage(msg);
+
     }
     
     public void SetMSG(String msg){
         face.setMessage(msg);
+    }
+
+    public void waitTime(int time){
+        try {
+            Thread.sleep(time); // milliseconds
+             } catch (Exception e) {
+
+            }
     }
 } // end Virtual Pet

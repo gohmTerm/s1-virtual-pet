@@ -38,7 +38,7 @@ import javax.swing.JOptionPane;
 public class VirtualPetFace extends JFrame implements ActionListener{
 
     private final int WIDTH = 400;
-    private final int HEIGHT = 400;
+    private final int HEIGHT = 600;
     private ImagePanel imagePanel;
     private JTextPane textArea;
     private String base;
@@ -115,12 +115,24 @@ public class VirtualPetFace extends JFrame implements ActionListener{
         Font f = new Font(Font.SANS_SERIF,Font.BOLD, 16);
         textArea.setFont(f);
 
+        JTextPane textArea2 = new JTextPane();
+        textArea2.setEditable(false);
+        JScrollPane scroll2 = new JScrollPane(textArea2);
+        scroll2.setPreferredSize(new Dimension(width, height/4));
+        scroll2.setSize(new Dimension(width, height/4));
+        textArea2.setPreferredSize(new Dimension(width, height/4));
+        textArea2.setSize(new Dimension(width, height/4));
+        textArea2.setFont(f);
+
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridwidth = 2;
         c.gridx = 0;
         c.gridy = 2;
         c.ipady = 20;
         contentPane.add(scroll, c);
+
+        c.gridy = 3;
+        contentPane.add(scroll2, c);
     
         setLocationRelativeTo(null);
         setVisible(true);
