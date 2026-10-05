@@ -24,7 +24,7 @@ public class VirtualPet {
             S = 100;
         if(HP > 100)
             HP = 100;
-        if(HP == 0){
+        if(HP <= 0){
             face.setMessage("Finnias is dead!");
             face.setImage("dead");   
             waitTime(4000);
