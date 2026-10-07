@@ -32,11 +32,10 @@ import javax.swing.border.Border;
 import javax.swing.JOptionPane;
 import javax.swing.JDialog;
 
-
 public class VirtualPetFace extends JFrame implements ActionListener {
 
-    private final int WIDTH = 400;
-    private final int HEIGHT = 600;
+    private final int WIDTH = 600;
+    private final int HEIGHT = 650;
     private ImagePanel imagePanel;
     private JTextPane textArea;
     private JTextPane textArea2;
@@ -91,8 +90,8 @@ public class VirtualPetFace extends JFrame implements ActionListener {
         contentPane.setBackground(Color.white);
 
         imagePanel = new ImagePanel();
-        int width = 200;
-        int height = 200;
+        int width = 250;
+        int height = 250;
         imagePanel.setPreferredSize(new Dimension(width, height));
         imagePanel.setMinimumSize(new Dimension(width, height));
         imagePanel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
@@ -142,6 +141,13 @@ public class VirtualPetFace extends JFrame implements ActionListener {
         Image backImage = createImage(base + "background.png", "");
         Border bkgrnd = new CentredBackgroundBorder(backImage);
         ((JComponent) getContentPane()).setBorder(bkgrnd);
+    }
+
+    public void setBackground2(String Input) {
+        Image backImage = createImage(base + Input, "");
+        Border bkgrnd = new CentredBackgroundBorder(backImage);
+        ((JComponent) getContentPane()).setBorder(bkgrnd);
+        getContentPane().repaint();
     }
 
     protected Image createImage(String path, String description) {
@@ -201,7 +207,7 @@ public class VirtualPetFace extends JFrame implements ActionListener {
         textArea2.setText("You have: " + HP + " HP, \n" + "You have: " + Sat + " Saturation.");
     }
 
-    // The following method is vibe-coded:
+    // The following 2 methods are vibe-coded:
     public int showChoiceDialog(String question, String firstOption, String secondOption) {
         Object[] options = { firstOption, secondOption };
         JOptionPane pane = new JOptionPane(
@@ -217,15 +223,29 @@ public class VirtualPetFace extends JFrame implements ActionListener {
         dialog.setVisible(true);
 
         Object choice = pane.getValue();
-        if (firstOption.equals(choice)){
+        if (firstOption.equals(choice)) {
             System.out.println(firstOption);
             return 0;
-        }
-        else if (secondOption.equals(choice)){
+        } else if (secondOption.equals(choice)) {
             System.out.println(secondOption);
             return 1;
         }
         return -1;
+    }
+
+    public void showContinueDialog(String question) {
+        Object[] options = { "Continue" };
+        JOptionPane pane = new JOptionPane(
+                question,
+                JOptionPane.INFORMATION_MESSAGE,
+                JOptionPane.DEFAULT_OPTION,
+                null,
+                options,
+                options[0]);
+
+        JDialog dialog = pane.createDialog(this, "Virtual Pet");
+        dialog.setLocation(getX() + getWidth() + 10, getY() + 40);
+        dialog.setVisible(true);
     }
 
     public class ImagePanel extends JPanel {

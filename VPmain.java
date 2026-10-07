@@ -5,7 +5,7 @@ public class VPMain {
 
     public VPMain() {
         this.waitABeat(1000);
-        int noChoice = vp.showChoiceDialog("In this game, you follow the escapades of one Timothy, as he tries to make it through his day eating food. \n You have 2 stats to keep track of, HP, and Saturation. \n If you HP reaches zero, you preish. If your saturation reaches zero, your HP begins to lower.", "Lets go", "I'm Ready");
+        int noChoice = vp.showChoiceDialog("In this game, you follow the escapades of one Finnias, as he tries to make it through his day eating food. \n You have 2 stats to keep track of, HP, and Saturation. \n If you HP reaches zero, you perish. If your saturation reaches zero, your HP begins to lower.", "Lets go", "I'm Ready");
         this.waitABeat(1000);
         int choice = vp.showChoiceDialog("Good Morning! What to eat?", "Pizza", "Salad");
         if (choice == 0){
@@ -22,12 +22,12 @@ public class VPMain {
                     vp.SetMSG("You monster, you killed the ducks. You throw-up and lose your appetite.");
                     waitABeat(500);
                     vp.feed(-100,10);
-                    // Survives
+                    vp.victory();
                 }
                 else if (choice3 == 1){
                     vp.SetMSG("What are you talking about? That's not real. No food for you.");
                     waitABeat(500);
-                    // Survives
+                    vp.victory();
                 }
             }
             else if (choice2 == 1){
@@ -60,24 +60,24 @@ public class VPMain {
                 waitABeat(500);
                 vp.feed(40,-35);
                 int choice6 = vp.showChoiceDialog("You ate some bread. Don't you know white bread is bad for you? Here, I made you something.", "Bread you already ate", "Very Delicious and Cool Meal I Cooked for You");
-                if (choice6 == 1){
+                if (choice6 == 0){
                     vp.SetMSG("Ah yes, the meal I cooked you- wait wait wait");
                     waitABeat(500);
                     int choice7 = vp.showChoiceDialog("You'd rather eat the bread you, I have to stress, ALREADY ATE, than the food I prepared for you?", "Bread you ALREADY ate", "Meal with 1000 years of love, sweat, and tears");
-                    if (choice7 == 1){
+                    if (choice7 == 0){
                         vp.SetMSG("Okay fine, you eat the bread you... already ate. You feel hungry because you already ate it.");
                         waitABeat(500);
                         vp.feed(-10,0);
-                        //Survival
+                        vp.victory();
                     }
-                    else if (choice7 == 0){
+                    else if (choice7 == 1){
                         vp.SetMSG("Well now it feels like you're just saying that. I'm eating half of your portion.");
                         waitABeat(500);
                         vp.feed(20, 20);
-                        //Survival
+                        vp.victory();
                     }
                 }
-                else if (choice6 == 0){
+                else if (choice6 == 1){
                     vp.SetMSG("See, I worked really hard on that. Doesn't it taste great? Why is your face crunching up so much?");
                     waitABeat(500);
                     vp.feed(10,-100);
@@ -99,7 +99,7 @@ public class VPMain {
                     vp.SetMSG("Something tastes off about this... it's sort of like chicken but not? You feel filled, but also inherently disgusted for some reason.");
                     waitABeat(500);
                     vp.feed(40,-1);
-                    //survive
+                    vp.victory();
                 }
             
 

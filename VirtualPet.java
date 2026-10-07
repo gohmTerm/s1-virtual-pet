@@ -32,6 +32,13 @@ public class VirtualPet {
         }
     }
 
+    public void victory(){
+        face.setImage("joyful");
+        face.setBackground2("pixilart-drawing.png");
+        face.showContinueDialog("You win! Congrats. Finnias made it through the day and now rest peacefully.");
+        face.setImage("asleep");
+    }
+
     public void feed(int Sat, int Heal) {
         S += Sat;
         HP += Heal;
