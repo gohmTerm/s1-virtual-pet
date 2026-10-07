@@ -217,10 +217,14 @@ public class VirtualPetFace extends JFrame implements ActionListener {
         dialog.setVisible(true);
 
         Object choice = pane.getValue();
-        if (firstOption.equals(choice))
+        if (firstOption.equals(choice)){
+            System.out.println(firstOption);
             return 0;
-        if (secondOption.equals(choice))
+        }
+        else if (secondOption.equals(choice)){
+            System.out.println(secondOption);
             return 1;
+        }
         return -1;
     }
 
