@@ -75,4 +75,9 @@ public class VirtualPet {
     public void setHP(int HP, int Sat){
         face.setHP(HP, Sat);
     }
+
+
+    public void ContinueDialog(String msg){
+        face.showContinueDialog(msg);
+    }
 } // end Virtual Pet

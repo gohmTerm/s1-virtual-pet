@@ -5,7 +5,7 @@ public class VPMain {
 
     public VPMain() {
         this.waitABeat(1000);
-        int noChoice = vp.showChoiceDialog("In this game, you follow the escapades of one Finnias, as he tries to make it through his day eating food. \n You have 2 stats to keep track of, HP, and Saturation. \n If you HP reaches zero, you perish. If your saturation reaches zero, your HP begins to lower.", "Lets go", "I'm Ready");
+        vp.ContinueDialog("In this game, you follow the escapades of one Finnias, as he tries to make it through his day eating food. \n You have 2 stats to keep track of, HP, and Saturation. \n If you HP reaches zero, you perish. If your saturation reaches zero, your HP begins to lower.");
         this.waitABeat(1000);
         int choice = vp.showChoiceDialog("Good Morning! What to eat?", "Pizza", "Salad");
         if (choice == 0){
